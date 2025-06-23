@@ -157,7 +157,7 @@ footer {
     padding: 1px 1px; /* Espaciado superior e inferior */
     font-size: 20px; /* Tamaño de fuente */
     color: black;
-    background-color: #ff8059; /* Color de fondo del pie de página */
+    background-color: #ff8059e7; /* Color de fondo del pie de página */
 }
 
 .arce-link {
