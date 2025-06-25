@@ -216,6 +216,10 @@ footer {
     background-color: #ff8059e7; /* Color de fondo del pie de página */
 }
 
+footer p {
+    margin: 5px; /* Elimina el margen por defecto */
+}
+
 .arce-link {
     color: black;
     text-decoration: none;

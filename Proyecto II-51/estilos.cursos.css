@@ -41,7 +41,7 @@ h1 {
 }
 
 nav {
-     flex-shrink: 0; 
+    flex-shrink: 0; 
     flex-grow: 0; 
     padding: 0;
     box-sizing: border-box; 
@@ -158,6 +158,10 @@ footer {
     font-size: 20px; /* Tamaño de fuente */
     color: black;
     background-color: #ff8059e7; /* Color de fondo del pie de página */
+}
+
+footer p {
+    margin: 5px; /* Elimina el margen por defecto */
 }
 
 .arce-link {

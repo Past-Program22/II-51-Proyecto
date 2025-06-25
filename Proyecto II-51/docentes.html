@@ -48,6 +48,7 @@
     </script>
     <!-- e.preventDefault evita que el formulario se envie y recargue la pagina -->
      
+    <div class="table-responsive">
     <table>
       <!-- Encabezado -->
       <thead>
@@ -122,12 +123,15 @@
         </tr>
       </tbody>
     </table>
+    </div>
+    <!-- Tabla responsive para que se adapte a pantallas pequeñas -->
 
   </main>
 
   <footer>
     <p>&copy; <span id="year"></span> Plataforma Educativa Universidad Central</p>
-    <p>Contacto: <a href="mailto:carcec@edu.uc.ac.cr">Carlos Arce</a></p>
+    <p>Proyecto II-51</p>
+    <p>Contacto: <a href="mailto:carcec@edu.uc.ac.cr"class="arce-link">carcec@edu.uc.ac.cr</a></p>
   </footer>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
