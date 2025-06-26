@@ -47,6 +47,17 @@
     </script>
 
   </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Plataforma Educativa Universidad Central</p>
+    <p>Proyecto II-51</p>
+    <p>Contacto: <a href="mailto:carcec@edu.uc.ac.cr"class="arce-link">carcec@edu.uc.ac.cr</a></p>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <!-- Este script coloca automáticamente el año actual en el footer, 
+      de modo que no es necesario actualizarlo manualmente cada año. -->
   
 </body>
 
