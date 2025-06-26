@@ -11,13 +11,18 @@ body {
     height: 100vh;
 }
 
-h2 {
-    text-align: center;
-    color: #333;
+.login-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-bottom: 32px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .login-container {
-    background-color: white;
+    background: rgba(0,0,0,0.1);
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -71,13 +76,22 @@ button:hover {
 footer {
     width: 100%;
     text-align: center;
-    color: #000; /* Texto negro */
+    color: white;
     background: rgba(0,0,0,0.5); /* Fondo negro transparente */
-    padding: 16px 0 8px 0;
+    padding: 0;
     position: fixed;
     left: 0;
     bottom: 0;
-    z-index: 10;
     font-size: 16px;
     letter-spacing: 1px;
+}
+
+footer p {
+    margin: 4px 0; /* Muy poco espacio arriba y abajo */
+    padding: 0;
+}
+
+.arce-link {
+    color: white;
+    text-decoration: none;
 }
