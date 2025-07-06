@@ -9,32 +9,56 @@
 </head>
 
 <body>
-    
-  <div class="login-container">
-    <h2>Iniciar Sesión</h2>
-    <input type="text" id="username" placeholder="Usuario">
-    <input type="password" id="password" placeholder="Contraseña">
-    <button onclick="login()">Entrar</button>
-    <div class="error" id="error">Usuario o contraseña incorrectos.</div>
-  </div>
+  
+  <main>
+    <section class="login-section">
+      <div class="login-container">
+        <img src="https://connect-campus.uc.ac.cr/pluginfile.php/1/core_admin/logo/0x200/1736778698/uc-logo.png" alt="Logo Carlos Arce" class="logo-ca">
+        <input type="text" id="username" placeholder="Usuario">
+        <input type="password" id="password" placeholder="Contraseña">
+        <button onclick="login()">Acceder</button>
+        <a href="recuperar.html" class="olvido-link">¿Olvidó su contraseña?</a>
+        <hr class="linea-blanca">
+        <div class="error" id="error">Acceso inválido. Por favor, inténtelo otra vez.</div>
+      </div>
+    </section>
 
-  <script>
-    function login() {
-      const user = document.getElementById("username").value;
-      const pass = document.getElementById("password").value;
+    <!-- Esta función se ejecuta al hacer clic en el botón "Entrar"
+        Obtiene los valores ingresados por el usuario y la contraseña
+        Luego compara esos valores con los datos válidos ("admin" y "1234")
+        Si coinciden, redirige al usuario a "inicio.html"
+        Si no coinciden, muestra un mensaje de error en pantalla -->
+    <script>
+      function login() {
+        // Usuario y contraseña "inventados"
+        const user = document.getElementById("username").value;
+        const pass = document.getElementById("password").value;
 
-      // Usuario y contraseña "inventados"
-      const usuarioValido = "admin";
-      const contraseñaValida = "1234";
+        // Usuario y contraseña "inventados"
+        const usuarioValido = "admin";
+        const contraseñaValida = "1234";
 
-      if (user === usuarioValido && pass === contraseñaValida) {
-        window.location.href = "../inicio.html";
-      } else {
-        document.getElementById("error").style.display = "block";
+        if (user === usuarioValido && pass === contraseñaValida) {
+          window.location.href = "Proyecto II-51/Inicio.html";
+        } else {
+          document.getElementById("error").style.display = "block";
+        }
       }
-    }
-  </script>
+    </script>
 
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Plataforma Educativa Universidad Central</p>
+    <p>Proyecto II-51</p>
+    <p>Contacto: <a href="mailto:carcec@edu.uc.ac.cr"class="arce-link">carcec@edu.uc.ac.cr</a></p>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <!-- Este script coloca automáticamente el año actual en el footer, 
+      de modo que no es necesario actualizarlo manualmente cada año. -->
+  
 </body>
 
 </html>
