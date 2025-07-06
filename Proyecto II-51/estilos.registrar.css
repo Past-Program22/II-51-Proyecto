@@ -1,0 +1,66 @@
+#ctn-1 {
+    background-color: #b5a78d;
+    width: 100%;
+    padding: 24px 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;  /* Centra verticalmente el contenido si hay más elementos */
+}
+
+.logo-uc {
+    width: 120px;
+    height: auto;      /* Mantiene la proporción */
+    display: block;
+    margin: 0 0 0 80px;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+/* No media query for `xs` since this is the default in Bootstrap */
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+    
+}
+
+/*Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+ 
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+   
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,0.5); /* Fondo negro transparente */
+    padding: 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+footer p {
+    margin: 3px 0;
+    padding: 0;
+}
+
+.arce-link {
+    color: white;
+    text-decoration: none;
+}

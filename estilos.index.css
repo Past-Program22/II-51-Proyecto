@@ -80,7 +80,7 @@ button {
 }
 
 button:hover {
-    background-color: #f5be59;
+    background-color: #ceaf75;
 }
 
 .olvido-link {
@@ -119,8 +119,23 @@ button:hover {
     padding: 1px 1px;
     text-align: center;
     position: absolute;
-    transform: translateY(-80px);
+    transform: translateY(-110px);
     top: calc(100% + 10px);
+}
+
+.crear-usuario-btn {
+    margin-top: 48px;
+    background-color: #ceaf75;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.crear-usuario-btn:hover {
+    background-color: #b5a78d;
 }
 
 footer {
