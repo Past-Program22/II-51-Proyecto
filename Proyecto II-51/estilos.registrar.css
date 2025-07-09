@@ -1,3 +1,23 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.main-content {
+    flex: 1;
+}
+
 #ctn-1 {
     background-color: #b5a78d;
     width: 100%;
@@ -7,11 +27,58 @@
     align-items: center;  /* Centra verticalmente el contenido si hay más elementos */
 }
 
+.mt-custom {
+    margin-top: 20px;
+}
+
 .logo-uc {
     width: 120px;
     height: auto;      /* Mantiene la proporción */
     display: block;
-    margin: 0 0 0 80px;
+    margin: 0 0 0 330px;
+}
+
+.back-button {
+    position: absolute;
+    top: 45px;
+    left: 1100px;
+    background: #f8f9fa;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-size: 14px;
+    font-weight: 500;
+    color: #495057;
+
+}
+
+.back-button:hover {
+    background: #e9ecef;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    color: #212529;
+}
+
+.back-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.arrow {
+    width: 16px;
+    height: 16px;
+    fill: #495057;
+    transition: fill 0.3s ease;
+}
+
+.back-button:hover .arrow {
+    fill: #212529;
 }
 
 /* Extra small devices (portrait phones, less than 576px) */
@@ -47,12 +114,10 @@ footer {
     text-align: center;
     color: white;
     background: rgba(0,0,0,0.5); /* Fondo negro transparente */
-    padding: 0;
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    padding: 10px 0;
     font-size: 18px;
     letter-spacing: 1px;
+    margin-top: 40px;
 }
 
 footer p {
