@@ -1,5 +1,5 @@
 body, html {
-    font-family: 'Times new roman', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #b3c6e0;
     background-image: url('https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=1920&q=80');
     background-size: cover; /* Asegura que la imagen cubra todo el fondo */
@@ -46,7 +46,7 @@ main {
 }
 
 .login-container input {
-    font-family: 'Times new roman', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
     width: 370px;
     height: 28.125px;
     margin: 0px 0 16px 0; /* Espacio entre inputs */
@@ -61,7 +61,7 @@ main {
 }
 
 button {
-    font-family: 'Times new roman', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
     margin-top: 0px;
     margin-bottom: 16px;
     width: auto; /* El botón se ajusta al contenido */
@@ -124,7 +124,7 @@ button:hover {
 }
 
 .crear-usuario-btn {
-    margin-top: 48px;
+    margin: 40px 0 0 16px;
     background-color: #ceaf75;
     color: white;
     border: none;
