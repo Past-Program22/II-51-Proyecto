@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -12,6 +18,14 @@ body {
 
 main {
     flex: 1;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
 .main-content {
@@ -117,7 +131,8 @@ footer {
     padding: 10px 0;
     font-size: 18px;
     letter-spacing: 1px;
-    margin-top: 40px;
+    margin-top: auto;
+    margin-bottom: 0;
 }
 
 footer p {
