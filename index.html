@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inicio de Sesión</title>
   <link rel="stylesheet" href="estilos.index.css">
+
+
 </head>
 
 <body>
@@ -14,51 +16,65 @@
     <section class="login-section">
       <div class="login-container">
         <img src="https://connect-campus.uc.ac.cr/pluginfile.php/1/core_admin/logo/0x200/1736778698/uc-logo.png" alt="Logo Carlos Arce" class="logo-ca">
-        <input type="text" id="username" placeholder="Usuario">
-        <input type="password" id="password" placeholder="Contraseña">
+        
+        <!-- Grupo de input de usuario -->
+        <div class="input-group">
+          <input type="text" id="username" placeholder="Usuario">
+        </div>
+        
+        <!-- Grupo de input de contraseña con error debajo -->
+        <div class="input-group">
+          <input type="password" id="password" placeholder="Contraseña">
+          <div class="error" id="error">Acceso inválido. Por favor, inténtelo otra vez.</div>
+        </div>
+        
         <button onclick="login()">Acceder</button>
         <a href="recuperar.html" class="olvido-link">¿Olvidó su contraseña?</a>
         <hr class="linea-blanca">
-        <div class="error" id="error">Acceso inválido. Por favor, inténtelo otra vez.</div>
         <button class="crear-usuario-btn" onclick="window.location.href='Proyecto II-51/registrar.html'">Crear un usuario por primera vez</button>
       </div>
     </section>
-
-    <!-- Esta función se ejecuta al hacer clic en el botón "Entrar"
-        Obtiene los valores ingresados por el usuario y la contraseña
-        Luego compara esos valores con los datos válidos ("admin" y "1234")
-        Si coinciden, redirige al usuario a "inicio.html"
-        Si no coinciden, muestra un mensaje de error en pantalla -->
-    <script>
-      function login() {
-        // Usuario y contraseña "inventados"
-        const user = document.getElementById("username").value;
-        const pass = document.getElementById("password").value;
-
-        // Usuario y contraseña "inventados"
-        const usuarioValido = "admin";
-        const contraseñaValida = "1234";
-
-        if (user === usuarioValido && pass === contraseñaValida) {
-          window.location.href = "Proyecto II-51/Inicio.html";
-        } else {
-          document.getElementById("error").style.display = "block";
-        }
-      }
-    </script>
-
   </main>
 
   <footer>
     <p>&copy; <span id="year"></span> Plataforma Educativa Universidad Central</p>
     <p>Proyecto II-51</p>
-    <p>Contacto: <a href="mailto:carcec@edu.uc.ac.cr"class="arce-link">carcec@edu.uc.ac.cr</a></p>
+    <p>Contacto: <a href="mailto:carcec@edu.uc.ac.cr" class="arce-link">carcec@edu.uc.ac.cr</a></p>
   </footer>
+
   <script>
+    function login() {
+      // Usuario y contraseña "inventados"
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      // Usuario y contraseña "inventados"
+      const usuarioValido = "admin";
+      const contraseñaValida = "1234";
+
+      if (user === usuarioValido && pass === contraseñaValida) {
+        window.location.href = "Proyecto II-51/Inicio.html";
+      } else {
+        document.getElementById("error").style.display = "block";
+        
+        // Opcional: ocultar el error después de 3 segundos
+        setTimeout(() => {
+          document.getElementById("error").style.display = "none";
+        }, 3000);
+      }
+    }
+    
+    // Ocultar error cuando el usuario empiece a escribir
+    document.getElementById("username").addEventListener("input", function() {
+      document.getElementById("error").style.display = "none";
+    });
+    
+    document.getElementById("password").addEventListener("input", function() {
+      document.getElementById("error").style.display = "none";
+    });
+    
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-  <!-- Este script coloca automáticamente el año actual en el footer, 
-      de modo que no es necesario actualizarlo manualmente cada año. -->
   
 </body>
 

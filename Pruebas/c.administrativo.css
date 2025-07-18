@@ -1,0 +1,264 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 20px;
+}
+
+header {
+  background-color: #e6e4df; /* gris claro */
+  padding: 10px 20px;
+  position: relative;
+}
+
+.texto-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+}
+
+/* Contenedor para h1 y p */
+.titulo-contenido {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 0;
+  color: #333333;
+}
+
+p {
+  font-size: 14px;
+  color: #666666;
+  margin: 0;
+}
+
+/* Menú de usuario en el header */
+.menu-usuario {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%); /* Centra verticalmente */
+  z-index: 1001; /* Asegura que esté por encima de otros elementos */
+}
+
+.usuario-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #333;
+}
+
+.usuario-btn:hover {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+.usuario-btn:hover i {
+  color: #53c2b4;
+}
+
+.menu-admin {
+  position: relative;
+  align-self: flex-start;
+  margin-top: 5px;
+}
+
+.admin-btn {
+  font-size: 28px;
+  min-width: 48px;
+  min-height: 48px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.admin-btn i {
+  font-size: 28px;
+}
+
+.admin-btn:hover {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+.admin-btn:hover i {
+  color: #53c2b4;
+}
+
+.dropdown-1 {
+  display: none;
+  position: absolute;
+  left: 0; /* Mantiene el dropdown alineado a la izquierda del botón */
+  top: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  min-width: 160px;
+  z-index: 1000;
+}
+
+.dropdown-2 {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  min-width: 160px;
+  z-index: 1000;
+}
+
+.dropdown-1 a,
+.dropdown-2 a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.dropdown-1 a:hover,
+.dropdown-2 a:hover {
+  background-color: #f3f3f3;
+  color: #000;
+}
+
+.dropdown-1 hr,
+.dropdown-2 hr {
+  margin: 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+/* Mostrar el dropdown al hacer hover en el botón */
+.menu-admin:hover .dropdown-1,
+.menu-usuario:hover .dropdown-2 {
+  display: block;
+}
+
+.form-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+form div {
+    margin-bottom:1rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+    width: 70%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="tel"]:hover,
+input[type="date"]:hover {
+    outline: none;
+    border-color: #ceaf75;
+}
+
+form button {
+    width: 30%;
+    padding: 12px;
+    background-color: #b5a78d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ceaf75;
+}
+
+table {
+    width:100%; 
+    border-collapse:collapse; 
+    margin-top:2rem;
+}
+
+table th,
+table td {
+    border: 1px solid #dee2e6;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    font-weight: bold;
+    background:#e9ecef;
+}
+
+table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+footer {
+  background-color: #e6e4df;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  color: #333333;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+.arce-link {
+  color: #333;
+  text-decoration: none;
+}
+.arce-link:hover {
+  color: #53c2b4; /* turquesa en hover */
+}

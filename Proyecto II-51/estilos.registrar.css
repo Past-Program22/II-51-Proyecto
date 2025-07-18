@@ -10,12 +10,6 @@ html, body {
     padding: 0;
 }
 
-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
 main {
     flex: 1;
 }
@@ -24,8 +18,6 @@ main {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  margin: 0;
-  padding: 0;
 }
 
 .main-content {
@@ -38,7 +30,9 @@ main {
     padding: 24px 0;
     box-sizing: border-box;
     display: flex;
-    align-items: center;  /* Centra verticalmente el contenido si hay más elementos */
+    align-items: center;
+    justify-content: left;
+    position: relative;
 }
 
 .mt-custom {
@@ -131,7 +125,7 @@ footer {
     padding: 10px 0;
     font-size: 18px;
     letter-spacing: 1px;
-    margin-top: auto;
+    margin-top: 20px;
     margin-bottom: 0;
 }
 

@@ -2,33 +2,41 @@
 
 <!DOCTYPE html>
 <html lang="es">
-  <link rel="stylesheet" href="c.administrativo.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="docentes.css">
 
   <head>
     <meta charset="UTF-8">
-    <title>Registro de Alumnos</title>
+    <title>Proyecto II-51 / Docentes</title>
   </head>
 
   <header>
-    <div class="contenedor-titulo">
-      <img src="https://connect-campus.uc.ac.cr/pluginfile.php/1/core_admin/logo/0x200/1736778698/uc-logo.png"
-        alt="Logo Carlos Arce" class="logo-ca" />
-      
-      <div class="contenido-header">
-        <div class="texto-header">
-          <h1>Menú</h1>
-          <p>Acceso a la Plataforma Educativa Universidad Central</p>
+    <div class="texto-header">
+      <div class="menu-admin">
+        <button class="admin-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="dropdown-1">
+          <a href="docentes.php"><i class="fas fa-chalkboard-teacher"></i> Docentes</a>
+          <hr>
+          <a href="estudiantes.php"><i class="fas fa-user-graduate"></i> Estudiantes</a>
+          <a href="cursos.php"><i class="fas fa-book"></i> Cursos</a>
         </div>
+      </div>
+      <div class="titulo-contenido">
+        <h1>Tabla de Docentes</h1>
+        <p>Docentes de la Plataforma Educativa Universidad Central</p>
+      </div>
+    </div>
 
         <div class="menu-usuario">
           <button class="usuario-btn">
             <i class="fas fa-user"></i>
             <i class="fas fa-chevron-down"></i>
           </button>
-          <div class="dropdown">
-          <a href="inicio.html"><i class="fas fa-circle-xmark"></i> Salir</a>
-          <a href="estilos.html"><i class="fas fa-paint-brush"></i> Estilos</a>
+          <div class="dropdown-2">
+            <a href="inicio.html"><i class="fas fa-circle-xmark"></i> Salir</a>
+            <a href="estilos.html"><i class="fas fa-paint-brush"></i> Estilos</a>
             <hr>
             <a href="../index.html"><i class="fas fa-arrow-right-from-bracket"></i> Cerrar sesión</a>
           </div>
@@ -41,36 +49,7 @@
     <div class="wrapper">
       <main>
         <div class="form-wrap">
-          <h2>Registro de Alumnos</h2>
-          <form action="procesar.php" method="POST"> <!-- Formulario para registrar alumnos -->
-
-            <div>
-              <label>Nombre/Apellido:</label>
-              <input type="text" name="nombre_apellido">
-            </div>
-            <div>
-              <label>Identificación:</label>
-              <input type="text" name="id">
-            </div>
-            <div>
-              <label>Correo electrónico:</label>
-              <input type="email" name="correo">
-            </div>
-            <div>
-              <label>Teléfono:</label>
-              <input type="tel" name="telefono">
-            </div>
-            <div>
-              <label>Curso:</label>
-              <input type="text" name="curso">
-            </div>
-            <div>
-              <label>Fecha de nacimiento:</label>
-              <input type="date" name="fecha_nacimiento">
-            </div>
-            <button type="submit">Enviar</button>
-            <!-- Botón para enviar el formulario se encargar de disparar la informacion -->
-          </form>
+          <h2>Registro de Docentes</h2>
         </div>
 
         <table>
