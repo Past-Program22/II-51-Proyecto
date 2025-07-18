@@ -53,26 +53,22 @@
         <table>
           <thead>
             <tr>
-              <th>Nombre/Apellido</th>
-              <th>ID</th>
-              <th>Correo</th>
-              <th>Teléfono</th>
-              <th>Curso</th>
-              <th>Fecha de Nacimiento</th>
+              <th>Nombre del Curso</th>
+              <th>Créditos</th>
+              <th>Nombre del Docente</th>
+              <th>Código del Curso</th>
               <th>Fecha de Registro</th>
             </tr>
           </thead>
           <tbody>
             <?php // stmt es una variable que contiene la consulta a la base de datos statement
-              $stmt = $pdo->query("SELECT * FROM estudiantes ORDER BY nombre_apellido DESC"); // Consulta para obtener los alumnos registrados
+              $stmt = $pdo->query("SELECT * FROM cursos ORDER BY codigo DESC"); // Consulta para obtener los cursos registrados
               while($row = $stmt->fetch(PDO::FETCH_ASSOC)) { // fetch asocia los resultados a un array asociativo
                 echo "<tr>
-                        <td>".htmlspecialchars($row['nombre_apellido'])."</td>
-                        <td>".htmlspecialchars($row['id'])."</td>
-                        <td>".htmlspecialchars($row['correo'])."</td>
-                        <td>".htmlspecialchars($row['telefono'])."</td>
-                        <td>".htmlspecialchars($row['curso'])."</td>
-                        <td>".htmlspecialchars($row['fecha_nacimiento'])."</td>
+                        <td>".htmlspecialchars($row['nombre_curso'])."</td>
+                        <td>".htmlspecialchars($row['creditos'])."</td>
+                        <td>".htmlspecialchars($row['docente'])."</td>
+                        <td>".htmlspecialchars($row['codigo'])."</td>
                         <td>{$row['fecha_registro']}</td>
                       </tr>";
               } // htmlspecialchars previene ataques XSS al escapar caracteres especiales como <, >, &, etc.
