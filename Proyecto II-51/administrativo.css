@@ -15,14 +15,6 @@ body {
   flex-direction: column;
 }
 
-.wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  padding: 20px;
-}
-
 header {
   background-color: #e6e4df; /* gris claro */
   padding: 10px 20px;
@@ -46,13 +38,13 @@ header {
   flex-direction: column;
 }
 
-h1 {
+.titulo-contenido h1 {
   font-size: 20px;
   margin: 0;
   color: #333333;
 }
 
-p {
+.titulo-contenido p {
   font-size: 14px;
   color: #666666;
   margin: 0;
@@ -153,6 +145,7 @@ p {
   color: #333;
   text-decoration: none;
   font-size: 14px;
+  white-space: nowrap;
 }
 
 .dropdown-1 a:hover,
@@ -177,6 +170,14 @@ p {
   display: block;
 }
 
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 20px;
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -196,6 +197,12 @@ main {
   width: 100%;
   margin: 2rem 0;
   border: 1px solid rgba(229, 115, 115, 0.1);
+  transition: all 0.3s ease;
+}
+
+.form-wrap:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(229, 115, 115, 0.25);
 }
 
 .form-wrap h2 {
@@ -220,11 +227,11 @@ main {
 }
 
 /* Grupos de campos */
-form div {
+.form-group {
   margin-bottom: 1.5rem;
 }
 
-label {
+.form-group label {
   display: block;
   margin-bottom: 0.5rem;
   color: #333333;
@@ -232,7 +239,12 @@ label {
   font-size: 1rem;
 }
 
-input[type="text"] {
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
   width: 100%;
   padding: 1rem;
   border: 2px solid #929292;
@@ -242,7 +254,9 @@ input[type="text"] {
   background: #ffffff;
 }
 
-input[type="text"]:focus {
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
   outline: none;
   border-color: #e57373;
   background: white;
@@ -251,7 +265,7 @@ input[type="text"]:focus {
 }
 
 /* Botón de envío */
-button[type="submit"] {
+.submit-btn {
   width: 100%;
   padding: 1rem 2rem;
   background: linear-gradient(135deg, #e57373 0%, #ef5350 100%);
@@ -265,14 +279,19 @@ button[type="submit"] {
   margin-top: 1rem;
 }
 
-button[type="submit"]:hover {
+.submit-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(229, 115, 115, 0.4);
   background: linear-gradient(135deg, #ef5350 0%, #e53935 100%);
 }
 
-button[type="submit"]:active {
+.submit-btn:active {
   transform: translateY(-1px);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
 }
 
 footer {
@@ -295,4 +314,26 @@ footer p {
 
 .arce-link:hover {
   color: #53c2b4; /* turquesa en hover */
+}
+
+/* Estados activos para navegación */
+.menu-item-active {
+  background-color: #f3f3f3 !important;
+  color: #000 !important;
+}
+
+/* Animaciones de entrada */
+.form-wrap {
+  animation: slideInUp 0.6s ease;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
