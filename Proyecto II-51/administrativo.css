@@ -28,6 +28,9 @@ header {
   padding: 10px 20px;
   position: relative;
   flex-shrink: 0;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
 }
 
 .texto-header {
@@ -55,35 +58,7 @@ p {
   margin: 0;
 }
 
-/* Menú de usuario en el header */
-.menu-usuario {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%); /* Centra verticalmente */
-  z-index: 1001; /* Asegura que esté por encima de otros elementos */
-}
-
-.usuario-btn {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: #333;
-}
-
-.usuario-btn:hover {
-  background: none !important;
-  background-color: transparent !important;
-}
-
-.usuario-btn:hover i {
-  color: #53c2b4;
-}
-
+/* Menu admin en el header */
 .menu-admin {
   position: relative;
   align-self: flex-start;
@@ -112,10 +87,45 @@ p {
   color: #53c2b4;
 }
 
-.dropdown-1 {
+/* Contenedor para los menús de la derecha */
+.menus-derecha {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Estilos comunes para menu-tablas y menu-usuario */
+.menu-tablas, .menu-usuario {
+  position: relative;
+}
+
+.tablas-btn, .usuario-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.tablas-btn:hover, .usuario-btn:hover {
+  background: none !important;
+  background-color: transparent !important;
+}
+
+.tablas-btn:hover i, .usuario-btn:hover i {
+  color: #53c2b4;
+}
+
+/* Dropdowns con el mismo estilo */
+.dropdown-1, .dropdown-2, .dropdown-3 {
   display: none;
   position: absolute;
-  left: 0; /* Mantiene el dropdown alineado a la izquierda del botón */
   top: 100%;
   background: #fff;
   border: 1px solid #ccc;
@@ -125,21 +135,17 @@ p {
   z-index: 1000;
 }
 
-.dropdown-2 {
-  display: none;
-  position: absolute;
+.dropdown-1 {
+  left: 0;
+}
+
+.dropdown-2, .dropdown-3 {
   right: 0;
-  top: 100%;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  min-width: 160px;
-  z-index: 1000;
 }
 
 .dropdown-1 a,
-.dropdown-2 a {
+.dropdown-2 a,
+.dropdown-3 a {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -150,13 +156,15 @@ p {
 }
 
 .dropdown-1 a:hover,
-.dropdown-2 a:hover {
+.dropdown-2 a:hover,
+.dropdown-3 a:hover {
   background-color: #f3f3f3;
   color: #000;
 }
 
 .dropdown-1 hr,
-.dropdown-2 hr {
+.dropdown-2 hr,
+.dropdown-3 hr {
   margin: 0;
   border: none;
   border-top: 1px solid #ccc;
@@ -164,7 +172,8 @@ p {
 
 /* Mostrar el dropdown al hacer hover en el botón */
 .menu-admin:hover .dropdown-1,
-.menu-usuario:hover .dropdown-2 {
+.menu-tablas:hover .dropdown-2,
+.menu-usuario:hover .dropdown-3 {
   display: block;
 }
 

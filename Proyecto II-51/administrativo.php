@@ -28,18 +28,34 @@
       </div>
     </div> <!-- Cierra texto-header -->
 
-    <div class="menu-usuario">
-      <button class="usuario-btn">
-        <i class="fas fa-user"></i>
-        <i class="fas fa-chevron-down"></i>
-      </button>
-      <div class="dropdown-2">
-        <a href="inicio.html"><i class="fas fa-circle-xmark"></i> Salir</a>
-        <a href="estilos.html"><i class="fas fa-paint-brush"></i> Estilos</a>
-        <hr>
-        <a href="../index.html"><i class="fas fa-arrow-right-from-bracket"></i> Cerrar sesión</a>
-      </div>
-    </div> <!-- Cierra menu-usuario -->
+    <!-- Contenedor para los menús de la derecha -->
+    <div class="menus-derecha">
+      <div class="menu-tablas">
+        <button class="tablas-btn">
+          <i class="fa-solid fa-list"></i>
+        </button>
+        <div class="dropdown-2">
+          <a href="cursos.php"><i class="fas fa-book"></i> Tabla Cursos</a>
+          <hr>
+          <a href="docentes.php"><i class="fas fa-chalkboard-teacher"></i> Tabla Docentes</a>
+          <a href="estudiantes.php"><i class="fas fa-user-graduate"></i> Tabla Estudiantes</a>
+        </div>
+      </div> <!-- Cierra menu-tablas -->
+
+      <div class="menu-usuario">
+        <button class="usuario-btn">
+          <i class="fas fa-user"></i>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="dropdown-3">
+          <a href="inicio.html"><i class="fas fa-circle-xmark"></i> Salir</a>
+          <a href="estilos.html"><i class="fas fa-paint-brush"></i> Estilos</a>
+          <hr>
+          <a href="../index.html"><i class="fas fa-arrow-right-from-bracket"></i> Cerrar sesión</a>
+        </div>
+      </div> <!-- Cierra menu-usuario -->
+    </div>
+    
   </header>
 
   <body>
