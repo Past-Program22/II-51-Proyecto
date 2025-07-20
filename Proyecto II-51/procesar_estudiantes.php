@@ -22,7 +22,7 @@ if (count($errores) > 0) {
   foreach ($errores as $err) {
     echo "<p style='color:red;'>$err</p>";
   }
-  echo "<p><a href='index.php'>Volver</a></p>";
+  echo "<p><a href='administrativo.php'>Volver</a></p>";
   exit;
 }
 

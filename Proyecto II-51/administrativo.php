@@ -24,7 +24,7 @@
       </div>
       <div class="titulo-contenido">
         <h1 id="form-title">Formulario de Cursos</h1>
-        <p id="form-description">Cursos de la Plataforma Educativa Universidad Central</p>
+        <p id="form-description">Gestión de Cursos Universitarios</p>
       </div>
     </div> <!-- Cierra texto-header -->
 
@@ -86,7 +86,7 @@
           </form>
 
           <!-- Formulario de Docentes -->
-          <form id="form-docentes" action="procesar_docentes.php" method="POST" class="form-container" style="display: none;">
+          <form id="form-docentes" action="procesar_docentes.php" method="POST" class="form-container">
             <div class="form-group">
               <label>Nombre Completo:</label>
               <input type="text" name="nombre_apellido" required>
@@ -111,7 +111,7 @@
           </form>
 
           <!-- Formulario de Estudiantes -->
-          <form id="form-estudiantes" action="procesar_estudiantes.php" method="POST" class="form-container" style="display: none;">
+          <form id="form-estudiantes" action="procesar_estudiantes.php" method="POST" class="form-container">
             <div class="form-group">
               <label>Nombre Completo:</label>
               <input type="text" name="nombre_apellido" required>
@@ -159,6 +159,7 @@
     <p>Proyecto II-51</p>
     <p>Contacto: <a href="mailto:carcec@edu.uc.ac.cr" class="arce-link">carcec@edu.uc.ac.cr</a></p>
   </footer>
+
   <script>
     // Función para mostrar el form que seleccionamos
     function showForm(formType) {
@@ -187,7 +188,7 @@
       const titles = {
         cursos: {
           title: 'Formulario de Cursos',
-          description: 'Cursos de la Plataforma Educativa Universidad Central',
+          description: 'Gestión de Cursos Universitarios',
           heading: 'Registro de Cursos'
         },
         docentes: {

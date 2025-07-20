@@ -264,6 +264,11 @@ main {
   transform: translateY(-2px);
 }
 
+#form-docentes,
+#form-estudiantes {
+  display: none;
+}
+
 /* Botón de envío */
 .submit-btn {
   width: 100%;

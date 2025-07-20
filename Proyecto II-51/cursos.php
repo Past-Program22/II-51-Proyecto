@@ -58,6 +58,7 @@
               <th>Nombre del Docente</th>
               <th>Código del Curso</th>
               <th>Fecha de Registro</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -70,6 +71,9 @@
                         <td>".htmlspecialchars($row['docente'])."</td>
                         <td>".htmlspecialchars($row['codigo'])."</td>
                         <td>{$row['fecha_registro']}</td>
+                        <td>
+                          <a href='procesar_cursos.php?id={$row['nombre_curso']}&accion=actualizar' title='Actualizar' class='btn-actualizar'><i class='fas fa-sync-alt'></i></a> |
+                          <a href='procesar_cursos.php?id={$row['nombre_curso']}&accion=eliminar' title='Eliminar' class='btn-eliminar'><i class='fa-solid fa-circle-xmark'></i></a>
                       </tr>";
               } // htmlspecialchars previene ataques XSS al escapar caracteres especiales como <, >, &, etc.
             ?>
