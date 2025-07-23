@@ -72,8 +72,8 @@
                         <td>".htmlspecialchars($row['codigo'])."</td>
                         <td>{$row['fecha_registro']}</td>
                         <td>
-                          <a href='procesar_cursos.php?id={$row['nombre_curso']}&accion=actualizar' title='Actualizar' class='btn-actualizar'><i class='fas fa-sync-alt'></i></a> |
-                          <a href='procesar_cursos.php?id={$row['nombre_curso']}&accion=eliminar' title='Eliminar' class='btn-eliminar'><i class='fa-solid fa-circle-xmark'></i></a>
+                          <a href='procesar_cursos.php?nombre_curso={$row['nombre_curso']}&accion=actualizar' title='Actualizar' class='btn-actualizar'><i class='fas fa-sync-alt'></i></a> |
+                          <a href='procesar_cursos.php?nombre_curso={$row['nombre_curso']}&accion=eliminar' title='Eliminar' class='btn-eliminar'><i class='fa-solid fa-circle-xmark'></i></a>
                       </tr>";
               } // htmlspecialchars previene ataques XSS al escapar caracteres especiales como <, >, &, etc.
             ?>

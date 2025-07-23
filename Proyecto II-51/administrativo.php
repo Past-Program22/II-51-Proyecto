@@ -64,7 +64,7 @@
           <h2 id="form-heading">Registro de Cursos</h2>
 
           <!-- Formulario para registrar cursos -->
-          <form id="form-cursos" action="procesar_cursos.php" method="POST" class="form-container">
+          <form action="procesar_cursos.php?accion=insertar" method="POST" class="form-container">
             <div class="form-group">
               <label>Nombre del Curso:</label>
               <input type="text" name="nombre_curso" required>
