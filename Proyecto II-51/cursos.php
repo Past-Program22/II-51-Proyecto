@@ -93,25 +93,3 @@
   </script>
   
 </html>
-
-
-<!-- <div class="button-group">
-      <input type="text" id="buscador" class="buscador-input" placeholder="Buscar curso...">
-      <button class="clear-button" type="reset">Limpiar filtros</button>
-      <button class="submit-button" type="submit">Aplicar filtros</button>
-    </div>
-
-    <script>
-      document.querySelector('.button-group .submit-button').addEventListener('click', function(e) {
-        e.preventDefault();
-        const filtro = document.getElementById('buscador').value.toLowerCase(); 
-        document.querySelectorAll('tbody tr').forEach(tr => {
-            const texto = tr.textContent.toLowerCase();
-            tr.style.display = texto.includes(filtro) ? '' : 'none';
-        });
-      });
-      document.querySelector('.button-group .clear-button').addEventListener('click', function() {
-        document.getElementById('buscador').value = '';
-        document.querySelectorAll('tbody tr').forEach(tr => tr.style.display = '');
-      });
-    </script> -->

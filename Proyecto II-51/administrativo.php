@@ -64,7 +64,7 @@
           <h2 id="form-heading">Registro de Cursos</h2>
 
           <!-- Formulario para registrar cursos -->
-          <form action="procesar_cursos.php?accion=insertar" method="POST" class="form-container">
+          <form id="form-cursos" action="procesar_cursos.php?accion=insertar" method="POST" class="form-container">
             <div class="form-group">
               <label>Nombre del Curso:</label>
               <input type="text" name="nombre_curso" required>
@@ -86,7 +86,7 @@
           </form>
 
           <!-- Formulario de Docentes -->
-          <form id="form-docentes" action="procesar_docentes.php" method="POST" class="form-container">
+          <form id="form-docentes" action="procesar_docentes.php?accion=insertar" method="POST" class="form-container">
             <div class="form-group">
               <label>Nombre Completo:</label>
               <input type="text" name="nombre_apellido" required>
@@ -111,7 +111,7 @@
           </form>
 
           <!-- Formulario de Estudiantes -->
-          <form id="form-estudiantes" action="procesar_estudiantes.php" method="POST" class="form-container">
+          <form id="form-estudiantes" action="procesar_estudiantes.php?accion=insertar" method="POST" class="form-container">
             <div class="form-group">
               <label>Nombre Completo:</label>
               <input type="text" name="nombre_apellido" required>
@@ -163,7 +163,7 @@
   <script>
     // Función para mostrar el form que seleccionamos
     function showForm(formType) {
-      // Ocultar todos los formularios
+      // Ocultar todos los formularios encuentra todos los formularios y los oculta
       const forms = document.querySelectorAll('.form-container');
       forms.forEach(form => form.style.display = 'none');
       
@@ -171,14 +171,14 @@
       const menuItems = document.querySelectorAll('.menu-item');
       menuItems.forEach(item => item.classList.remove('menu-item-active'));
       
-      // Mostrar el formulario seleccionado
+      // Mostrar el formulario seleccionado por el ID
       const targetForm = document.getElementById(`form-${formType}`);
       if (targetForm) {
         targetForm.style.display = 'block';
         targetForm.style.animation = 'slideInUp 0.6s ease';
       }
       
-      // Activar elemento del menú
+      // Activar elemento del menú, marca como activo el elemento del menú correspondiente.
       const activeMenuItem = document.querySelector(`[data-form="${formType}"]`);
       if (activeMenuItem) {
         activeMenuItem.classList.add('menu-item-active');
@@ -203,19 +203,21 @@
         }
       };
       
+      // Cambia los títulos de la página según el formulario seleccionado
       if (titles[formType]) {
         document.getElementById('form-title').textContent = titles[formType].title;
         document.getElementById('form-description').textContent = titles[formType].description;
         document.getElementById('form-heading').textContent = titles[formType].heading;
       }
       
-      // Cerrar dropdown después de seleccionar
+      // Cerrar dropdown después de seleccionar con animación suave
       const dropdown = document.querySelector('.dropdown-1');
       if (dropdown) {
         dropdown.style.opacity = '0';
         dropdown.style.visibility = 'hidden';
         dropdown.style.transform = 'translateY(-10px)';
         
+        // Resetea los estilos CSS del dropdown después de 300ms es como limpiar la pizarra
         setTimeout(() => {
           dropdown.style.opacity = '';
           dropdown.style.visibility = '';

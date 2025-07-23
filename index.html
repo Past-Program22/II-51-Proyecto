@@ -16,6 +16,7 @@
     <section class="login-section">
       <div class="login-container">
         <img src="https://connect-campus.uc.ac.cr/pluginfile.php/1/core_admin/logo/0x200/1736778698/uc-logo.png" alt="Logo Carlos Arce" class="logo-ca">
+        <!-- Logo UC -->
         
         <!-- Grupo de input de usuario -->
         <div class="input-group">
@@ -28,6 +29,7 @@
           <div class="error" id="error">Acceso inválido. Por favor, inténtelo otra vez.</div>
         </div>
         
+        <!-- Ejecuta una función JavaScript -->
         <button onclick="login()">Acceder</button>
         <a href="recuperar.html" class="olvido-link">¿Olvidó su contraseña?</a>
         <hr class="linea-blanca">
@@ -57,7 +59,7 @@
       } else {
         document.getElementById("error").style.display = "block";
         
-        // Opcional: ocultar el error después de 3 segundos
+        // oculta el error después de 3 segundos
         setTimeout(() => {
           document.getElementById("error").style.display = "none";
         }, 3000);
@@ -73,6 +75,7 @@
       document.getElementById("error").style.display = "none";
     });
     
+    // Año dinámico
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
   

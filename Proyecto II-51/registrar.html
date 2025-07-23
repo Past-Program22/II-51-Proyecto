@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.
 css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" 
 crossorigin="anonymous">
-<link rel="stylesheet" href="estilos.registrar.css">
+<link rel="stylesheet" href="registrar.css">
 <title>Proyecto II-51 - Registro</title>
 
 </head>
@@ -20,9 +20,8 @@ crossorigin="anonymous">
                 <img src="https://connect-campus.uc.ac.cr/pluginfile.php/1/core_admin/logo/0x200/1736778698/uc-logo.png" 
                 alt="Logo UC" class="logo-uc">
                 <a href="../index.html" class="back-button">
-                    <svg class="arrow" viewBox="0 0 24 24">
-                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
-                    </svg> <!-- svg icono de flecha hacia atrás y el path esta dibujando -->
+                    <svg class="arrow" viewBox="0 0 24 24"> <!-- El SVG es un ícono de flecha apuntando hacia la izquierda y viewBox define el área de dibujo del ícono -->
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/> <!-- El <path> contiene las coordenadas que dibujan la flecha -->
                     Salir
                 </a>
             </div>
@@ -71,8 +70,6 @@ crossorigin="anonymous">
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
-    <!-- Este script coloca automáticamente el año actual en el footer, 
-        de modo que no es necesario actualizarlo manualmente cada año. -->
 
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
