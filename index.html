@@ -6,34 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inicio de Sesión</title>
   <link rel="stylesheet" href="index.css">
-
-
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="script.js" defer></script>
 </head>
 
 <body>
-  
   <main>
     <section class="login-section">
       <div class="login-container">
         <img src="https://connect-campus.uc.ac.cr/pluginfile.php/1/core_admin/logo/0x200/1736778698/uc-logo.png" alt="Logo Carlos Arce" class="logo-ca">
-        <!-- Logo UC -->
-        
+
         <!-- Grupo de input de usuario -->
         <div class="input-group">
-          <input type="text" id="username" placeholder="Usuario">
+          <input type="email" id="username" placeholder="Correo electrónico">
         </div>
-        
+
         <!-- Grupo de input de contraseña con error debajo -->
         <div class="input-group">
           <input type="password" id="password" placeholder="Contraseña">
-          <div class="error" id="error">Acceso inválido. Por favor, inténtelo otra vez.</div>
+          <div class="error" id="error" style="display:none;">Acceso inválido. Por favor, inténtelo otra vez.</div>
         </div>
-        
-        <!-- Ejecuta una función JavaScript -->
+
+        <!-- Botón de login -->
         <button onclick="login()">Acceder</button>
         <a href="recuperar.html" class="olvido-link">¿Olvidó su contraseña?</a>
         <hr class="linea-blanca">
         <button class="crear-usuario-btn" onclick="window.location.href='Proyecto II-51/registrar.html'">Crear un usuario por primera vez</button>
+
+        <!-- Botón de login con Google -->
+        <button class="google-btn" onclick="loginWithGoogle()">Acceder con Google</button>
       </div>
     </section>
   </main>
@@ -43,42 +44,6 @@
     <p>Proyecto II-51</p>
     <p>Contacto: <a href="mailto:carcec@edu.uc.ac.cr" class="arce-link">carcec@edu.uc.ac.cr</a></p>
   </footer>
-
-  <script>
-    function login() {
-      // Usuario y contraseña "inventados"
-      const user = document.getElementById("username").value;
-      const pass = document.getElementById("password").value;
-
-      // Usuario y contraseña "inventados"
-      const usuarioValido = "admin";
-      const contraseñaValida = "1234";
-
-      if (user === usuarioValido && pass === contraseñaValida) {
-        window.location.href = "Proyecto II-51/Inicio.html";
-      } else {
-        document.getElementById("error").style.display = "block";
-        
-        // oculta el error después de 3 segundos
-        setTimeout(() => {
-          document.getElementById("error").style.display = "none";
-        }, 3000);
-      }
-    }
-    
-    // Ocultar error cuando el usuario empiece a escribir
-    document.getElementById("username").addEventListener("input", function() {
-      document.getElementById("error").style.display = "none";
-    });
-    
-    document.getElementById("password").addEventListener("input", function() {
-      document.getElementById("error").style.display = "none";
-    });
-    
-    // Año dinámico
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  
 </body>
 
 </html>

@@ -8,6 +8,8 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f4f4;
 }
 
 main {
@@ -15,35 +17,34 @@ main {
 }
 
 .wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .main-content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Barra superior */
 #ctn-1 {
     background-color: #b5a78d;
     width: 100%;
     padding: 24px 0;
-    box-sizing: border-box;
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
     position: relative;
-}
-
-.mt-custom {
-    margin-top: 20px;
 }
 
 .logo-uc {
     width: 120px;
-    height: auto;      /* Mantiene la proporción */
+    height: auto;
     display: block;
-    margin: 0 0 0 390px;
+    margin-right: 1640px;
 }
 
 .back-button {
@@ -55,7 +56,8 @@ main {
     border-radius: 25px;
     padding: 10px 20px;
     display: flex;
-    align-items: center;
+    align-items: center;   /* vertical centering */
+    justify-content: center; /* horizontal centering del contenido */
     gap: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -63,7 +65,7 @@ main {
     font-size: 14px;
     font-weight: 500;
     color: #495057;
-
+    text-decoration: none;
 }
 
 .back-button:hover {
@@ -78,55 +80,75 @@ main {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.arrow {
-    width: 16px;
-    height: 16px;
-    fill: #495057;
-    transition: fill 0.3s ease;
+.back-button i {
+    font-size: 16px;
+    color: #495057;
+    transition: color 0.3s ease;
 }
 
-.back-button:hover .arrow {
-    fill: #212529;
+.back-button:hover i {
+    color: #212529;
 }
 
-/* Extra small devices (portrait phones, less than 576px) */
-/* No media query for `xs` since this is the default in Bootstrap */
-
-/* Extra small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) { 
-    
+/* Contenedor del formulario */
+.container {
+    max-width: 600px;
+    background: #fff;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
-/*Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { 
-
+.container strong {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 10px;
 }
 
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
- 
+.container p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
 }
 
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
-
+/* Inputs */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { 
-   
+.form-control:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 6px rgba(108, 99, 255, 0.5);
 }
 
+/* Botón */
+.btn-primary {
+    width: 100%;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #6c63ff;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #574fd6;
+}
+
+/* Footer */
 footer {
     width: 100%;
     text-align: center;
     color: white;
-    background: rgba(0,0,0,0.5); /* Fondo negro transparente */
-    padding: 10px 0;
-    font-size: 18px;
-    letter-spacing: 1px;
-    margin-top: 20px;
-    margin-bottom: 0;
+    background: rgba(0,0,0,0.7);
+    padding: 15px 0;
+    font-size: 16px;
+    margin-top: auto;
 }
 
 footer p {
