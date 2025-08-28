@@ -195,22 +195,51 @@ table tr:nth-child(even) {
     background-color: #f8f9fa;
 }
 
-.btn-eliminar {
-  color: red;
+/* Columna Acciones */
+td.acciones {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Botones de acción */
+.btn-accion {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
   text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  border: none;
 }
 
-.btn-eliminar:hover {
-  color: darkred;
-}
-
+/* Botón Actualizar */
 .btn-actualizar {
-  color: blue;
-  text-decoration: none;
+  background: linear-gradient(135deg, #53c2b4 0%, #3aa89e 100%);
+}
+.btn-actualizar:hover {
+  background: linear-gradient(135deg, #3aa89e 0%, #2d8f85 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(83,194,180,0.4);
 }
 
-.btn-actualizar:hover {
-  color: darkblue;
+/* Botón Eliminar */
+.btn-eliminar {
+  background: linear-gradient(135deg, #e57373 0%, #ef5350 100%);
+}
+.btn-eliminar:hover {
+  background: linear-gradient(135deg, #ef5350 0%, #e53935 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(229,115,115,0.4);
+}
+
+/* Ajuste de iconos */
+.btn-accion i {
+  font-size: 1rem;
 }
 
 footer {

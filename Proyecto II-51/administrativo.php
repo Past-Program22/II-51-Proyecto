@@ -71,7 +71,7 @@
             </div>
             <div class="form-group">
               <label>Créditos:</label>
-              <input type="text" name="creditos" required>
+              <input type="number" name="creditos" required>
             </div>
             <div class="form-group">
               <label>Nombre del Docente:</label>

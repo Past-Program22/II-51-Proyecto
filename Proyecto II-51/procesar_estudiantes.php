@@ -53,5 +53,105 @@ if (isset($accion) && $accion === 'eliminar' && isset($_GET['nombre_apellido']))
 }
 
 // Si la acción es actualizar, procedemos a actualizar el registro
+/* ------------------ MOSTRAR FORMULARIO DE ACTUALIZAR ------------------ */
+if ($accion === 'actualizar' && isset($_GET['nombre_apellido'])) {
+    $nombre_apellido = $_GET['nombre_apellido'];
 
+    $stmt = $pdo->prepare("SELECT * FROM estudiantes WHERE nombre_apellido = :nombre_apellido");
+    $stmt->execute([':nombre_apellido' => $nombre_apellido]);
+    $estudiante = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$estudiante) {
+        echo "<p>No se encontró el estudiante.</p>";
+        exit;
+    }
+    ?>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>Actualizar Estudiante</title>
+      <link rel="stylesheet" href="administrativo.css">
+    </head>
+    <body>
+      <div class="wrapper">
+        <main>
+          <div class="form-wrap">
+            <h2>Actualizar Estudiante</h2>
+            <form method="POST" action="procesar_estudiantes.php?accion=guardar_actualizacion">
+              <input type="hidden" name="nombre_original" value="<?= htmlspecialchars($estudiante['nombre_apellido']) ?>">
+
+              <div class="form-group">
+                <label>Nombre/Apellido:</label>
+                <input type="text" name="nombre_apellido" value="<?= htmlspecialchars($estudiante['nombre_apellido']) ?>" required>
+              </div>
+
+              <div class="form-group">
+                <label>ID:</label>
+                <input type="text" name="id" value="<?= htmlspecialchars($estudiante['id']) ?>" required>
+              </div>
+
+              <div class="form-group">
+                <label>Correo:</label>
+                <input type="email" name="correo" value="<?= htmlspecialchars($estudiante['correo']) ?>" required>
+              </div>
+
+              <div class="form-group">
+                <label>Teléfono:</label>
+                <input type="text" name="telefono" value="<?= htmlspecialchars($estudiante['telefono']) ?>" required>
+              </div>
+
+              <div class="form-group">
+                <label>Curso:</label>
+                <input type="text" name="curso" value="<?= htmlspecialchars($estudiante['curso']) ?>" required>
+              </div>
+
+              <div class="form-group">
+                <label>Fecha de Nacimiento:</label>
+                <input type="date" name="fecha_nacimiento" value="<?= htmlspecialchars($estudiante['curso']) ?>" required>
+              </div>
+
+              <button type="submit" class="submit-btn">Actualizar Estudiante</button>
+            </form>
+            <p style="text-align:center; margin-top:15px;">
+            <a href="docentes.php" style="color:#e57373; text-decoration:none;">
+              <i class="fas fa-arrow-left"></i> Volver a Estudiantes
+            </a>
+          </p>
+          </div>
+        </main>
+      </div>
+    </body>
+    </html>
+    <?php
+    exit;
+}
+
+/* ------------------ GUARDAR ACTUALIZACIÓN ------------------ */
+if ($accion === 'guardar_actualizacion') {
+    $nombre_original = $_POST['nombre_original'] ?? '';
+    $nombre_apellido = trim($_POST['nombre_apellido'] ?? '');
+    $id = trim($_POST['id'] ?? '');
+    $correo = trim($_POST['correo'] ?? '');
+    $telefono = trim($_POST['telefono'] ?? '');
+    $curso = trim($_POST['curso'] ?? '');
+    $fecha_nacimiento = trim($_POST['fecha_nacimiento'] ?? '');
+
+    $sql = "UPDATE estudiantes 
+            SET nombre_apellido = :nombre_apellido, id = :id, correo = :correo, telefono = :telefono, curso = :curso, fecha_nacimiento = :fecha_nacimiento
+            WHERE nombre_apellido = :nombre_original";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':nombre_apellido' => $nombre_apellido,
+        ':id' => $id,
+        ':correo' => $correo,
+        ':telefono' => $telefono,
+        ':curso' => $curso,
+        ':fecha_nacimiento' => $fecha_nacimiento,
+        ':nombre_original' => $nombre_original
+    ]);
+
+    header('Location: estudiantes.php');
+    exit;
+}
 ?>

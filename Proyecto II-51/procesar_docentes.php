@@ -1,55 +1,150 @@
 <?php
 include 'db.php';
 
-$nombre_apellido = trim($_POST['nombre_apellido'] ?? ''); // Recibimos por medio del metodo POST el nombre completo del docente
-$id = trim($_POST['id'] ?? ''); // Recibimos por medio del metodo POST la identificación del docente
-$correo = trim($_POST['correo'] ?? ''); // Recibimos por medio del metodo POST el correo electrónico del docente
-$telefono = trim($_POST['telefono'] ?? ''); // Recibimos por medio del metodo POST el teléfono del docente
-$curso = trim($_POST['curso'] ?? ''); // Recibimos por medio del metodo POST el código del curso
-$accion = $_GET['accion'] ?? ''; // Obtenemos la acción a realizar desde la URL, por ejemplo, insertar o eliminar busca el parametro accion y lo guarda en la variable $accion
+$accion = $_GET['accion'] ?? '';
 
-// Verificamos si la acción es insertar, si es así, procedemos a validar los datos
-if (isset($accion) && $accion === 'insertar') {
+/* ------------------ INSERTAR ------------------ */
+if ($accion === 'insertar') {
+    $nombre_apellido = trim($_POST['nombre_apellido'] ?? '');
+    $id = trim($_POST['id'] ?? '');
+    $correo = trim($_POST['correo'] ?? '');
+    $telefono = trim($_POST['telefono'] ?? '');
+    $curso = trim($_POST['curso'] ?? '');
 
-  $errores = []; // Array para almacenar errores de validación
-  if ($nombre_apellido === '') $errores[] = 'El nombre completo es obligatorio.'; // Validamos que el nombre completo no esté vacío
-  if ($id === '') $errores[] = 'La identificación es obligatoria.'; // Validamos que la identificación no esté vacía 
-  if ($correo === '') $errores[] = 'El correo electrónico es obligatorio.'; // Validamos que el correo del docente no esté vacío
-  if ($telefono === '') $errores[] = 'El número de teléfono es obligatorio.'; // Validamos que el teléfono no esté vacío
-  if ($curso === '') $errores[] = 'El nombre del curso es obligatorio.'; // Validamos que el nombre del curso no esté vacío
+    $errores = [];
+    if ($nombre_apellido === '') $errores[] = 'El nombre completo es obligatorio.';
+    if ($id === '') $errores[] = 'La identificación es obligatoria.';
+    if ($correo === '') $errores[] = 'El correo es obligatorio.';
+    if ($telefono === '') $errores[] = 'El teléfono es obligatorio.';
+    if ($curso === '') $errores[] = 'El curso es obligatorio.';
 
-  // Esta negado la variable $errores, si no hay errores, se procede a insertar el registro
-  if (count($errores) > 0) {
-    // for each se utiliza para recorrer el array de errores
-    foreach ($errores as $err) {
-      echo "<p style='color:red;'>$err</p>";
+    if (count($errores) > 0) {
+        foreach ($errores as $err) {
+            echo "<p style='color:red;'>$err</p>";
+        }
+        echo "<p><a href='docentes.php'>Volver</a></p>";
+        exit;
     }
-    echo "<p><a href='administrativo.php'>Volver</a></p>";
+
+    $sql  = "INSERT INTO docentes (nombre_apellido, id, correo, telefono, curso) 
+             VALUES (:nombre_apellido, :id, :correo, :telefono, :curso)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':nombre_apellido' => $nombre_apellido,
+        ':id' => $id,
+        ':correo' => $correo,
+        ':telefono' => $telefono,
+        ':curso' => $curso
+    ]);
+
+    header('Location: docentes.php');
     exit;
-  }
-
-  $sql  = "INSERT INTO docentes (nombre_apellido, id, correo, telefono, curso) VALUES (:nombre_apellido, :id, :correo, :telefono, :curso)"; // En values los : son marcadores de posición para evitar inyecciones SQL, eso quiere decir que los valores se asignan de forma segura.
-  $stmt = $pdo->prepare($sql);
-  $stmt->execute([':nombre_apellido' => $nombre_apellido, ':id' => $id, ':correo' => $correo, ':telefono' => $telefono, 'curso' => $curso]); // Ejecutamos la consulta con los valores proporcionados
-
-  header('Location: administrativo.php'); // Redirigimos al usuario a la página principal después de insertar el registro
-  exit;
-
 }
 
-// Verifica que existe la variable $accion y su valor es eliminar y verifica que exista nombre_apellido
-if (isset($accion) && $accion === 'eliminar' && isset($_GET['nombre_apellido'])) {
-  $nombre_apellido_eliminar = $_GET['nombre_apellido']; // Obtenemos el nombre del docente desde la URL
-  $sql = "DELETE FROM docentes WHERE nombre_apellido = :nombre_apellido";
-  $stmt = $pdo->prepare($sql); // Usa prepared statement para evitar inyección SQL.
-  $resultado = $stmt->execute([':nombre_apellido' => $nombre_apellido_eliminar]); // Ejecuta la consulta sustituyendo el placeholder con el valor real.
-  // Prueba de feedback
-  echo "<p>Eliminando el docente con nombre: " . htmlspecialchars($nombre_apellido_eliminar) . "</p>";
-  echo "<p>Redirigiendo en 2 segundos...</p>";
-  echo "<script>setTimeout(function(){ window.location.href = 'docentes.php'; }, 2000);</script>";
-  exit;
+/* ------------------ ELIMINAR ------------------ */
+if ($accion === 'eliminar' && isset($_GET['nombre_apellido'])) {
+    $nombre_apellido_eliminar = $_GET['nombre_apellido'];
+    $sql = "DELETE FROM docentes WHERE nombre_apellido = :nombre_apellido";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':nombre_apellido' => $nombre_apellido_eliminar]);
+
+    echo "<p>Eliminando el docente: " . htmlspecialchars($nombre_apellido_eliminar) . "</p>";
+    echo "<script>setTimeout(function(){ window.location.href = 'docentes.php'; }, 2000);</script>";
+    exit;
 }
 
-// Si la acción es actualizar, procedemos a actualizar el registro
+/* ------------------ MOSTRAR FORMULARIO DE ACTUALIZAR ------------------ */
+if ($accion === 'actualizar' && isset($_GET['nombre_apellido'])) {
+    $nombre_apellido = $_GET['nombre_apellido'];
 
+    $stmt = $pdo->prepare("SELECT * FROM docentes WHERE nombre_apellido = :nombre_apellido");
+    $stmt->execute([':nombre_apellido' => $nombre_apellido]);
+    $docente = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$docente) {
+        echo "<p>No se encontró el docente.</p>";
+        exit;
+    }
+    ?>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <meta charset="UTF-8">
+      <title>Actualizar Docente</title>
+      <link rel="stylesheet" href="administrativo.css">
+    </head>
+    <body>
+      <div class="wrapper">
+        <main>
+          <div class="form-wrap">
+            <h2>Actualizar Docente</h2>
+            <form method="POST" action="procesar_docentes.php?accion=guardar_actualizacion">
+              <input type="hidden" name="nombre_original" value="<?= htmlspecialchars($docente['nombre_apellido']) ?>">
+
+              <div class="form-group">
+                <label>Nombre/Apellido:</label>
+                <input type="text" name="nombre_apellido" value="<?= htmlspecialchars($docente['nombre_apellido']) ?>" required>
+              </div>
+
+              <div class="form-group">
+                <label>ID:</label>
+                <input type="text" name="id" value="<?= htmlspecialchars($docente['id']) ?>" required>
+              </div>
+
+              <div class="form-group">
+                <label>Correo:</label>
+                <input type="email" name="correo" value="<?= htmlspecialchars($docente['correo']) ?>" required>
+              </div>
+
+              <div class="form-group">
+                <label>Teléfono:</label>
+                <input type="text" name="telefono" value="<?= htmlspecialchars($docente['telefono']) ?>" required>
+              </div>
+
+              <div class="form-group">
+                <label>Curso:</label>
+                <input type="text" name="curso" value="<?= htmlspecialchars($docente['curso']) ?>" required>
+              </div>
+
+              <button type="submit" class="submit-btn">Actualizar Docente</button>
+            </form>
+            <p style="text-align:center; margin-top:15px;">
+            <a href="docentes.php" style="color:#e57373; text-decoration:none;">
+              <i class="fas fa-arrow-left"></i> Volver a Docentes
+            </a>
+          </p>
+          </div>
+        </main>
+      </div>
+    </body>
+    </html>
+    <?php
+    exit;
+}
+
+/* ------------------ GUARDAR ACTUALIZACIÓN ------------------ */
+if ($accion === 'guardar_actualizacion') {
+    $nombre_original = $_POST['nombre_original'] ?? '';
+    $nombre_apellido = trim($_POST['nombre_apellido'] ?? '');
+    $id = trim($_POST['id'] ?? '');
+    $correo = trim($_POST['correo'] ?? '');
+    $telefono = trim($_POST['telefono'] ?? '');
+    $curso = trim($_POST['curso'] ?? '');
+
+    $sql = "UPDATE docentes 
+            SET nombre_apellido = :nombre_apellido, id = :id, correo = :correo, telefono = :telefono, curso = :curso
+            WHERE nombre_apellido = :nombre_original";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':nombre_apellido' => $nombre_apellido,
+        ':id' => $id,
+        ':correo' => $correo,
+        ':telefono' => $telefono,
+        ':curso' => $curso,
+        ':nombre_original' => $nombre_original
+    ]);
+
+    header('Location: docentes.php');
+    exit;
+}
 ?>
