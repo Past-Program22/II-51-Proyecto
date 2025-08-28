@@ -1,4 +1,4 @@
-// Configura tu conexión a Supabase
+// Conexión a Supabase
 const supabaseUrl = "https://eqshgpdmjrywpfhmacnm.supabase.co";
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxc2hncGRtanJ5d3BmaG1hY25tIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMzMjA1ODMsImV4cCI6MjA2ODg5NjU4M30.b592fmNOienQHwWly5zu49bDV3peVGzfwR8FHJ5a8Eo";
 const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
@@ -23,7 +23,7 @@ async function login() {
   }
 }
 
-// Login con Google
+// Login con Google provisional si pudiera
 async function loginWithGoogle() {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',

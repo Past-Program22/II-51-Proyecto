@@ -53,7 +53,6 @@ if (isset($accion) && $accion === 'eliminar' && isset($_GET['nombre_apellido']))
 }
 
 // Si la acción es actualizar, procedemos a actualizar el registro
-/* ------------------ MOSTRAR FORMULARIO DE ACTUALIZAR ------------------ */
 if ($accion === 'actualizar' && isset($_GET['nombre_apellido'])) {
     $nombre_apellido = $_GET['nombre_apellido'];
 
@@ -127,7 +126,7 @@ if ($accion === 'actualizar' && isset($_GET['nombre_apellido'])) {
     exit;
 }
 
-/* ------------------ GUARDAR ACTUALIZACIÓN ------------------ */
+// Si la acción es guardar_actualizacion, procedemos a guardar los cambios
 if ($accion === 'guardar_actualizacion') {
     $nombre_original = $_POST['nombre_original'] ?? '';
     $nombre_apellido = trim($_POST['nombre_apellido'] ?? '');
