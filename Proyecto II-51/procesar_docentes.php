@@ -3,7 +3,7 @@ include 'db.php';
 
 $accion = $_GET['accion'] ?? '';
 
-/* ------------------ INSERTAR ------------------ */
+// Funcion de insertar
 if ($accion === 'insertar') {
     $nombre_apellido = trim($_POST['nombre_apellido'] ?? '');
     $id = trim($_POST['id'] ?? '');
@@ -41,7 +41,7 @@ if ($accion === 'insertar') {
     exit;
 }
 
-/* ------------------ ELIMINAR ------------------ */
+// Funcion de eliminar
 if ($accion === 'eliminar' && isset($_GET['nombre_apellido'])) {
     $nombre_apellido_eliminar = $_GET['nombre_apellido'];
     $sql = "DELETE FROM docentes WHERE nombre_apellido = :nombre_apellido";
@@ -53,7 +53,7 @@ if ($accion === 'eliminar' && isset($_GET['nombre_apellido'])) {
     exit;
 }
 
-/* ------------------ MOSTRAR FORMULARIO DE ACTUALIZAR ------------------ */
+// Funcion de actualizar - mostrar formulario
 if ($accion === 'actualizar' && isset($_GET['nombre_apellido'])) {
     $nombre_apellido = $_GET['nombre_apellido'];
 
@@ -122,7 +122,7 @@ if ($accion === 'actualizar' && isset($_GET['nombre_apellido'])) {
     exit;
 }
 
-/* ------------------ GUARDAR ACTUALIZACIÓN ------------------ */
+// Funcion de actualizar - guardar cambios
 if ($accion === 'guardar_actualizacion') {
     $nombre_original = $_POST['nombre_original'] ?? '';
     $nombre_apellido = trim($_POST['nombre_apellido'] ?? '');
